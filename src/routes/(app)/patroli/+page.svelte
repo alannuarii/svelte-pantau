@@ -21,7 +21,7 @@
 				<div>
 					<!-- <button class="btn capture"><i class="fi fi-rr-camera me-1" /> Ambil Gambar</button> -->
 					<div class="d-flex justify-content-center">
-						<a href="/patroli/camera" class="btn qr"><i class="fi fi-rr-qrcode" /></a>
+						<a href="/patroli/qrscanner" class="btn qr"><i class="fi fi-rr-qrcode" /></a>
 						<a href="/patroli/camera" class="btn camera"><i class="fi fi-rr-camera me-1" /></a>
 					</div>
 				</div>
