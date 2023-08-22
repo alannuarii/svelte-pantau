@@ -1,6 +1,7 @@
 <script>
     import { onMount, onDestroy, afterUpdate } from 'svelte';
     import jsQR from 'jsqr';
+    
    
     let mediaStream;
     let videoEl;
