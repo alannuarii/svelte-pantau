@@ -35,4 +35,7 @@
 		font-size: 5vw;
 		font-weight: 700;
 	}
+	.fi{
+		color: #ffffff;
+	}
 </style>
