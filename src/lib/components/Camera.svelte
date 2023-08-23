@@ -100,8 +100,8 @@
 		width: 100%;
 	}
 	.foto-border {
-		height: 320px;
-		width: 240px;
+		/* height: 320px; */
+		width: 100%;
 	}
 	.box {
 		height: 70px;
