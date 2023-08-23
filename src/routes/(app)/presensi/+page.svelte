@@ -5,6 +5,11 @@
 	let videoEl;
 	let canvas;
 	let arrNames = [];
+	let checkIn = false;
+
+	$: if (arrNames.length === 1) {
+		checkIn = true;
+	}
 
 	async function getWebcam() {
 		const mediaStream = await navigator.mediaDevices.getUserMedia({ video: true });
@@ -127,7 +132,7 @@
 			</div>
 		</div>
 		<div class="d-flex justify-content-center">
-			<button type="submit" class="btn submit">Check In</button>
+			<button type="submit" class="btn submit" disabled={!checkIn}>Check In</button>
 		</div>
 	</form>
 </div>
