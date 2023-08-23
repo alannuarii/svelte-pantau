@@ -54,7 +54,7 @@
 		</div>
 		{#if kondisi === 'Tidak Aman'}
 			<div>
-				<textarea class="form-control" rows="3" />
+				<textarea class="form-control" rows="2" />
 			</div>
 		{/if}
 	</div>

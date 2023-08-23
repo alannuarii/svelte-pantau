@@ -18,9 +18,9 @@
 			name: 'Apel'
 		},
 		{
-			path: '/cctv',
-			icon: 'fi fi-rr-camera-cctv',
-			name: 'CCTV'
+			path: '/presensi',
+			icon: 'fi fi-rr-face-viewfinder',
+			name: 'Presensi'
 		},
 		{
 			path: '/tamu',

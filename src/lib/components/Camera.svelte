@@ -9,7 +9,7 @@
 	let takeSnapshotBtn = true;
 	let isCanvasOn = false;
 
-	async function getWebcam() {
+	async function getCamera() {
 		try {
 			mediaStream = await navigator.mediaDevices.getUserMedia({
 				video: position
@@ -30,10 +30,10 @@
 		const imgUrl = canvas.toDataURL();
 		hiddenInput.value = imgUrl;
 		isCanvasOn = false;
-		stopWebcam();
+		stopCamera();
 	}
 
-	function stopWebcam() {
+	function stopCamera() {
 		if (videoEl && videoEl.srcObject) {
 			const mediaStream = videoEl.srcObject;
 			const tracks = mediaStream.getTracks();
@@ -51,22 +51,22 @@
 		const ctx = canvas.getContext('2d');
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 		hiddenInput.value = '';
-		getWebcam();
+		getCamera();
 		takeSnapshotBtn = true;
 		isCanvasOn = true;
 		resetBtn = false;
 	}
 
 	onMount(() => {
-		getWebcam();
+		getCamera();
 	});
 
 	onDestroy(() => {
-		stopWebcam();
+		stopCamera();
 	});
 </script>
 
-<div class="webcam d-flex flex-column align-items-center border p-3 shadow-sm">
+<div class="camera d-flex flex-column align-items-center border p-3 shadow-sm">
 	<div class="position-relative foto-border">
 		<!-- svelte-ignore a11y-media-has-caption -->
 		<video bind:this={videoEl} />
@@ -92,7 +92,7 @@
 </div>
 
 <style>
-	.webcam {
+	.camera {
 		border-radius: 20px;
 	}
 	video,

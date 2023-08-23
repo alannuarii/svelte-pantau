@@ -28,6 +28,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"face-api.js": "^0.22.2",
 		"jsqr": "^1.4.0"
 	}
 }
