@@ -104,7 +104,7 @@
 		width: 100%;
 	}
 	.foto-border {
-		height: 640px;
-		width: 360px;
+		/* height: 640px; */
+		width: 100%;
 	}
 </style>
