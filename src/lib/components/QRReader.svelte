@@ -43,6 +43,7 @@
 				const code = jsQR(imageData.data, imageData.width, imageData.height);
 				if (code) {
 					console.log('QR Code detected:', code.data);
+					alert(`${code.data}`)
 				}
 			}
 
