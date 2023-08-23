@@ -81,14 +81,14 @@
 	});
 </script>
 
-<div class="webcam d-flex flex-column align-items-center border p-3">
+<div class="webcam d-flex flex-column align-items-center border p-3 shadow-sm">
 	<div class="position-relative foto-border">
 		<!-- svelte-ignore a11y-media-has-caption -->
 		<video bind:this={videoEl} />
 		<canvas
 			class:d-none={isCanvasOn}
-			width="240"
-			height="320"
+			width="360"
+			height="640"
 			bind:this={canvasEl}
 			class="position-absolute top-50 start-50 translate-middle"
 		/>

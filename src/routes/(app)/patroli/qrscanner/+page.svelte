@@ -3,7 +3,7 @@
 </script>
 
 <div class="px-3">
-	<div class="mb-3 shadow-sm">
+	<div class="mb-3">
 		<QrReader />
 	</div>
 </div>

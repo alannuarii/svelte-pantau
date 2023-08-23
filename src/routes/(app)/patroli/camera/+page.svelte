@@ -3,12 +3,12 @@
 </script>
 
 <div class="px-3">
-	<div class="mb-3 shadow-sm">
+	<div class="mb-3">
 		<Camera position={{ facingMode: 'environment' }} />
 	</div>
 	<div class="kondisi p-3 border mb-4 shadow-sm">
 		<label for="exampleRadios1" class="form-label">Catatan</label>
-		<textarea class="form-control" rows="3" />
+		<textarea class="form-control" rows="2" />
 	</div>
 	<div class="d-flex justify-content-center">
 		<button type="submit" class="btn submit">Kirim</button>
