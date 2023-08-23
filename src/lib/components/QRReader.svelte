@@ -87,8 +87,8 @@
 		<video bind:this={videoEl} />
 		<canvas
 			class:d-none={isCanvasOn}
-			width="360"
-			height="640"
+			width="240"
+			height="320"
 			bind:this={canvasEl}
 			class="position-absolute top-50 start-50 translate-middle"
 		/>
@@ -104,7 +104,7 @@
 		width: 100%;
 	}
 	.foto-border {
-		height: 320px;
-		width: 240px;
+		height: 640px;
+		width: 360px;
 	}
 </style>
