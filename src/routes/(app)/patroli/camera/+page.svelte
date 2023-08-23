@@ -1,10 +1,10 @@
 <script>
-	import Webcam from "../../../../lib/components/Webcam.svelte";
+	import Camera from '../../../../lib/components/Camera.svelte';
 </script>
 
 <div class="px-3">
 	<div class="mb-3 shadow-sm">
-		<Webcam />
+		<Camera position={{ facingMode: 'environment' }} />
 	</div>
 	<div class="kondisi p-3 border mb-4 shadow-sm">
 		<label for="exampleRadios1" class="form-label">Catatan</label>

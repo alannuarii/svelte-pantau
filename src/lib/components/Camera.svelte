@@ -1,6 +1,7 @@
 <script>
 	import { onMount, onDestroy } from 'svelte';
 
+	export let position;
 	let mediaStream;
 	let videoEl;
 	let hiddenInput;
@@ -9,10 +10,17 @@
 	let isCanvasOn = false;
 
 	async function getWebcam() {
-		mediaStream = await navigator.mediaDevices.getUserMedia({ video: true });
-		videoEl.srcObject = mediaStream;
-		videoEl.play();
-		takeSnapshotBtn = true;
+		try {
+			mediaStream = await navigator.mediaDevices.getUserMedia({
+				video: position
+			});
+			videoEl.srcObject = mediaStream;
+			videoEl.play();
+			takeSnapshotBtn = true;
+		} catch (error) {
+			console.error('Tidak dapat mengakses kamera belakang:', error);
+			// Handle kesalahan jika diperlukan
+		}
 	}
 
 	function takeSnapshot() {
