@@ -72,8 +72,8 @@
 		<video bind:this={videoEl} />
 		<canvas
 			class:d-none={isCanvasOn}
-			width="360"
-			height="480"
+			width="300"
+			height="400"
 			class="position-absolute top-50 start-50 translate-middle"
 		/>
 		<input type="hidden" name="foto" bind:this={hiddenInput} />
@@ -100,8 +100,8 @@
 		width: 100%;
 	}
 	.foto-border {
-		height: 480px;
-		width: 360px;
+		height: 400px;
+		width: 300px;
 	}
 	.box {
 		height: 70px;
