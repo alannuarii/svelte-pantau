@@ -20,7 +20,7 @@
 		}
 	}
 
-	function stopWebcam() {
+	function stopCamera() {
 		if (videoEl && videoEl.srcObject) {
 			const mediaStream = videoEl.srcObject;
 			const tracks = mediaStream.getTracks();
@@ -31,25 +31,18 @@
 		}
 	}
 
-	function startCanvas() {
+	async function startCanvas() {
 		isCanvasOn = true;
 		canvasEl = document.createElement('canvas');
 		const context = canvasEl.getContext('2d');
-		canvasEl.width = videoEl.videoWidth;
-		canvasEl.height = videoEl.videoHeight;
 
 		const scanQRCode = () => {
-			context.drawImage(videoEl, 0, 0, canvasEl.width, canvasEl.height);
-			const imageData = context.getImageData(0, 0, canvasEl.width, canvasEl.height);
-			const code = jsQR(imageData.data, imageData.width, imageData.height);
-
-			if (code) {
-				console.log('QR Code detected:', code.data);
-				// Periksa apakah data QR code adalah URL
-				if (isValidURL(code.data)) {
-					window.location.href = code.data; // Arahkan ke URL
-				} else {
-					alert('QR Code: ' + code.data); // Tampilkan data QR code
+			if (videoEl && videoEl.readyState === videoEl.HAVE_ENOUGH_DATA) {
+				context.drawImage(videoEl, 0, 0, canvasEl.width, canvasEl.height);
+				const imageData = context.getImageData(0, 0, canvasEl.width, canvasEl.height);
+				const code = jsQR(imageData.data, imageData.width, imageData.height);
+				if (code) {
+					console.log('QR Code detected:', code.data);
 				}
 			}
 
@@ -58,7 +51,10 @@
 			}
 		};
 
-		scanQRCode();
+		// Memulai pemindai QR Code
+		if (videoEl) {
+			requestAnimationFrame(scanQRCode);
+		}
 	}
 
 	function stopCanvas() {
@@ -80,18 +76,8 @@
 
 	onDestroy(() => {
 		stopCanvas();
-		stopWebcam();
+		stopCamera();
 	});
-
-	// Fungsi untuk memeriksa apakah suatu string adalah URL
-	function isValidURL(string) {
-		try {
-			new URL(string);
-			return true;
-		} catch (_) {
-			return false;
-		}
-	}
 </script>
 
 <div class="webcam d-flex flex-column align-items-center border p-3">
