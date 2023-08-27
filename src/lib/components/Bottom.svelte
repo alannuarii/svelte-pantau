@@ -13,6 +13,9 @@
 			<i class="fi fi-rr-grip-lines" />
 		</div>
 		<OffcanvasMenuBottom />
+		<div class="warning">
+			<i class="fi fi-rr-engine-warning btn" />
+		</div>
 		<div class="btn">
 			<a href="/jadwal"><i class="fi fi-rr-calendar-clock" /></a>
 		</div>
@@ -26,7 +29,7 @@
 		background-color: #2b2d42;
 	}
 	i {
-		padding: 5px 15px;
+		padding: 0px 15px;
 		/* border-radius: 50%; */
 		font-size: 25px;
 		/* background-color: #ffd59d; */
@@ -37,5 +40,9 @@
 	}
 	a {
 		text-decoration: none;
+	}
+	.fi-rr-engine-warning{
+		font-size: 40px;
+		color: #ef233c;
 	}
 </style>
