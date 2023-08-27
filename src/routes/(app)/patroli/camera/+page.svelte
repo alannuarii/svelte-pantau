@@ -4,7 +4,7 @@
 
 <div class="px-3">
 	<div class="mb-3">
-		<Camera position={{ facingMode: 'environment' }} />
+		<Camera position={'environment'} />
 	</div>
 	<div class="kondisi p-3 border mb-4 shadow-sm">
 		<label for="exampleRadios1" class="form-label">Catatan</label>

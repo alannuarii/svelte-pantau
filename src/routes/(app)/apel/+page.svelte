@@ -6,7 +6,7 @@
 <div class="px-3">
 	<Title title={'FORM APEL'} />
 	<div class="mb-3">
-		<Camera position={true} />
+		<Camera position={'user'} />
 	</div>
 	<div class="kondisi p-3 border mb-4 shadow-sm">
 		<label for="exampleRadios1" class="form-label">Catatan</label>

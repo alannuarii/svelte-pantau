@@ -24,7 +24,7 @@
 		</div>
 	</div>
 	<div class="mb-4">
-		<Camera position={true} />
+		<Camera position={'user'} />
 	</div>
 	<div class="d-flex justify-content-center">
 		<button type="submit" class="btn submit">Kirim</button>
