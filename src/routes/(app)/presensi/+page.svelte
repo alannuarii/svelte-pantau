@@ -1,6 +1,7 @@
 <script>
 	import { onMount, onDestroy } from 'svelte';
 	import * as faceapi from 'face-api.js';
+	import Title from '../../../lib/components/Title.svelte';
 
 	let videoEl;
 	let canvas;
@@ -115,6 +116,7 @@
 	});
 </script>
 
+<Title title={'FORM PRESENSI'} />
 <div class="container mb-3">
 	<!-- svelte-ignore a11y-media-has-caption -->
 	<video bind:this={videoEl} />

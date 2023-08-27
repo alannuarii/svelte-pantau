@@ -1,8 +1,10 @@
 <script>
 	import Camera from '../../../lib/components/Camera.svelte';
+	import Title from '../../../lib/components/Title.svelte';
 </script>
 
 <div class="px-3">
+	<Title title={'FORM APEL'} />
 	<div class="mb-3">
 		<Camera position={true} />
 	</div>

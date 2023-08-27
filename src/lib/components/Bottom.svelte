@@ -14,7 +14,7 @@
 		</div>
 		<OffcanvasMenuBottom />
 		<div class="warning">
-			<i class="fi fi-rr-engine-warning btn" />
+			<a href="/warning"><i class="fi fi-rr-engine-warning" /></a>
 		</div>
 		<div class="btn">
 			<a href="/jadwal"><i class="fi fi-rr-calendar-clock" /></a>

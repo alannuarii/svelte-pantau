@@ -1,14 +1,30 @@
 <script>
 	import Camera from '../../../lib/components/Camera.svelte';
+	import Title from '../../../lib/components/Title.svelte';
 </script>
 
 <div class="px-3">
-	<div class="mb-3">
-		<Camera position={true} />
+	<Title title={'FORM PENERIMAAN TAMU'} />
+	<div class="kondisi p-3 border mb-3 shadow-sm">
+		<div class="mb-3">
+			<label for="exampleFormControlInput1" class="form-label">Nama Lengkap</label>
+			<input type="text" class="form-control" placeholder="Masukkan nama lengkap Anda" />
+		</div>
+		<div class="mb-3">
+			<label for="exampleFormControlInput1" class="form-label">Instansi</label>
+			<input type="text" class="form-control" placeholder="Masukkan instansi Anda" />
+		</div>
+		<div class="mb-3">
+			<label for="exampleFormControlInput1" class="form-label">Nomor Handphone</label>
+			<input type="number" class="form-control" placeholder="Masukkan nomor handphone Anda" />
+		</div>
+		<div class="mb-3">
+			<label for="exampleFormControlInput1" class="form-label">Tujuan Berkunjung</label>
+			<input type="text" class="form-control" placeholder="Masukkan tujuan berkunjung Anda" />
+		</div>
 	</div>
-	<div class="kondisi p-3 border mb-4 shadow-sm">
-		<label for="exampleRadios1" class="form-label">Catatan</label>
-		<textarea class="form-control" rows="2" />
+	<div class="mb-4">
+		<Camera position={true} />
 	</div>
 	<div class="d-flex justify-content-center">
 		<button type="submit" class="btn submit">Kirim</button>

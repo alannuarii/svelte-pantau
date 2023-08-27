@@ -1,4 +1,5 @@
 <script>
+	import Title from '../../../lib/components/Title.svelte';
 	let kondisi = false;
 
 	const locations = [
@@ -13,6 +14,7 @@
 </script>
 
 <div class="px-3">
+	<Title title={'FORM PATROLI'} />
 	{#each locations as loc, i}
 		<div class="mb-3">
 			<div class="border p-3 text-center mb-2 shadow-sm">

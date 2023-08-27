@@ -11,15 +11,19 @@
 
 	async function getCamera() {
 		try {
-			mediaStream = await navigator.mediaDevices.getUserMedia({
-				video: position
-			});
+			const mediaStream = await navigator.mediaDevices.getUserMedia({ video: position });
 			videoEl.srcObject = mediaStream;
 			videoEl.play();
-			takeSnapshotBtn = true;
+
+			// Memeriksa orientasi perangkat
+			const isLandscape = window.orientation === 90 || window.orientation === -90;
+
+			// Jika perangkat dalam mode lanskap, putar video 180 derajat
+			if (isLandscape) {
+				videoEl.style.transform = 'rotate(180deg)';
+			}
 		} catch (error) {
-			console.error('Tidak dapat mengakses kamera belakang:', error);
-			// Handle kesalahan jika diperlukan
+			console.error('Tidak dapat mengakses kamera:', error);
 		}
 	}
 
