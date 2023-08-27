@@ -5,30 +5,52 @@
 
 <div class="px-3">
 	<Title title={'FORM PENERIMAAN TAMU'} />
-	<div class="kondisi p-3 border mb-3 shadow-sm">
-		<div class="mb-3">
-			<label for="exampleFormControlInput1" class="form-label">Nama Lengkap</label>
-			<input type="text" class="form-control" placeholder="Masukkan nama lengkap Anda" />
+	<form method="POST">
+		<div class="kondisi p-3 border mb-3 shadow-sm">
+			<div class="mb-3">
+				<label for="exampleFormControlInput1" class="form-label">Nama Lengkap</label>
+				<input
+					type="text"
+					class="form-control"
+					placeholder="Masukkan nama lengkap Anda"
+					name="nama"
+				/>
+			</div>
+			<div class="mb-3">
+				<label for="exampleFormControlInput1" class="form-label">Instansi</label>
+				<input
+					type="text"
+					class="form-control"
+					placeholder="Masukkan instansi Anda"
+					name="instansi"
+				/>
+			</div>
+			<div class="mb-3">
+				<label for="exampleFormControlInput1" class="form-label">Nomor Handphone</label>
+				<input
+					type="number"
+					class="form-control"
+					placeholder="Masukkan nomor handphone Anda"
+					name="nohp"
+				/>
+			</div>
+			<div class="mb-3">
+				<label for="exampleFormControlInput1" class="form-label">Tujuan Berkunjung</label>
+				<input
+					type="text"
+					class="form-control"
+					placeholder="Masukkan tujuan berkunjung Anda"
+					name="tujuan"
+				/>
+			</div>
 		</div>
-		<div class="mb-3">
-			<label for="exampleFormControlInput1" class="form-label">Instansi</label>
-			<input type="text" class="form-control" placeholder="Masukkan instansi Anda" />
+		<div class="mb-4">
+			<Camera position={'user'} />
 		</div>
-		<div class="mb-3">
-			<label for="exampleFormControlInput1" class="form-label">Nomor Handphone</label>
-			<input type="number" class="form-control" placeholder="Masukkan nomor handphone Anda" />
+		<div class="d-flex justify-content-center">
+			<button type="submit" class="btn submit">Kirim</button>
 		</div>
-		<div class="mb-3">
-			<label for="exampleFormControlInput1" class="form-label">Tujuan Berkunjung</label>
-			<input type="text" class="form-control" placeholder="Masukkan tujuan berkunjung Anda" />
-		</div>
-	</div>
-	<div class="mb-4">
-		<Camera position={'user'} />
-	</div>
-	<div class="d-flex justify-content-center">
-		<button type="submit" class="btn submit">Kirim</button>
-	</div>
+	</form>
 </div>
 
 <style>

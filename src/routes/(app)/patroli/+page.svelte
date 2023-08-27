@@ -1,16 +1,7 @@
 <script>
 	import Title from '../../../lib/components/Title.svelte';
+	import { locations } from '../../../lib/js/locations';
 	let kondisi = false;
-
-	const locations = [
-		'Area Gedung Badminton',
-		'Area Tangki Timbun',
-		'Area Kebun',
-		'Area Gudang Material Bekas UP3',
-		'Gedung Sentral 2',
-		'Gedung Sentral 1',
-		'Gedung Admin'
-	];
 </script>
 
 <div class="px-3">
@@ -24,7 +15,9 @@
 					<!-- <button class="btn capture"><i class="fi fi-rr-camera me-1" /> Ambil Gambar</button> -->
 					<div class="d-flex justify-content-center">
 						<a href="/patroli/qrscanner" class="btn qr"><i class="fi fi-rr-qrcode" /></a>
-						<a href="/patroli/camera" class="btn camera"><i class="fi fi-rr-camera me-1" /></a>
+						<a href="/patroli/{i}" class="btn camera"
+							><i class="fi fi-rr-camera me-1" /></a
+						>
 					</div>
 				</div>
 			</div>
