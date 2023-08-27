@@ -11,19 +11,27 @@
 
 	async function getCamera() {
 		try {
-			const mediaStream = await navigator.mediaDevices.getUserMedia({ video: position });
+			mediaStream = await navigator.mediaDevices.getUserMedia({
+				video: position
+			});
 			videoEl.srcObject = mediaStream;
 			videoEl.play();
+			takeSnapshotBtn = true;
+			// Mendeteksi perubahan orientasi perangkat
+			window.addEventListener('orientationchange', function () {
+				const orientation = window.orientation;
 
-			// Memeriksa orientasi perangkat
-			const isLandscape = window.orientation === 90 || window.orientation === -90;
-
-			// Jika perangkat dalam mode lanskap, putar video 180 derajat
-			if (isLandscape) {
-				videoEl.style.transform = 'rotate(180deg)';
-			}
+				if (orientation === 0) {
+					// Perangkat dalam mode potrait
+					alert('Perangkat dalam mode potrait.');
+				} else if (orientation === 90 || orientation === -90) {
+					// Perangkat dalam mode lanskap
+					alert('Perangkat dalam mode lanskap.');
+				}
+			});
 		} catch (error) {
-			console.error('Tidak dapat mengakses kamera:', error);
+			console.error('Tidak dapat mengakses kamera belakang:', error);
+			// Handle kesalahan jika diperlukan
 		}
 	}
 
