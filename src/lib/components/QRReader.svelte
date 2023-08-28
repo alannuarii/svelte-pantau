@@ -42,9 +42,7 @@
 				const imageData = context.getImageData(0, 0, canvasEl.width, canvasEl.height);
 				const code = jsQR(imageData.data, imageData.width, imageData.height);
 				if (code) {
-					// console.log('QR Code detected:', code.data);
-					// alert(`${code.data}`)
-					window.location.href = '/';
+					window.location.href = `/patroli/${code.data}`;
 				}
 			}
 

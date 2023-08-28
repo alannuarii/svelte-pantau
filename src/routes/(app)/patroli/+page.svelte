@@ -15,9 +15,9 @@
 					<!-- <button class="btn capture"><i class="fi fi-rr-camera me-1" /> Ambil Gambar</button> -->
 					<div class="d-flex justify-content-center">
 						<a href="/patroli/qrscanner" class="btn qr"><i class="fi fi-rr-qrcode" /></a>
-						<a href="/patroli/{i}" class="btn camera"
+						<!-- <a href="/patroli/{i}" class="btn camera"
 							><i class="fi fi-rr-camera me-1" /></a
-						>
+						> -->
 					</div>
 				</div>
 			</div>
@@ -69,17 +69,17 @@
 		width: 50vw;
 		height: 45px;
 	}
-	.camera {
+	/* .camera {
 		background-color: #2ec4b6;
 		color: #ffffff;
 		border-radius: 0 10px 10px 0;
 		width: 20vw;
 		height: 35px;
-	}
+	} */
 	.qr {
 		border-color: #2ec4b6;
 		color: #2ec4b6;
-		border-radius: 10px 0 0 10px;
+		border-radius: 10px;
 		width: 20vw;
 		height: 35px;
 	}
