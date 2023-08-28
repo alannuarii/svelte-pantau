@@ -14,7 +14,7 @@ export const actions = {
 			parsedData[name] = value;
 		}
 
-		const res = await fetch(`${API_ENDPOINT}/post/patroli/insert-photo`, {
+		const res = await fetch(`${API_ENDPOINT}/post/patroli/insert-patroli`, {
 			method: 'POST',
 			body: JSON.stringify(parsedData),
 			headers: {
