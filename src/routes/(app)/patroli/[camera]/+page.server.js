@@ -6,6 +6,7 @@ export const actions = {
 
 		const formData = new FormData();
 		formData.append('foto', data.get('foto'));
+		formData.append('waktu', data.get('waktu'));
 		formData.append('lokasi', data.get('lokasi'));
 		formData.append('catatan', data.get('catatan'));
 

@@ -5,6 +5,9 @@
 	import Personil from '../../lib/components/Personil.svelte';
 	import Times from '../../lib/components/Times.svelte';
 	import Info from '../../lib/components/Info.svelte';
+	import namaPiket from '../../lib/js/store';
+
+	console.log($namaPiket);
 
 	const menuRow1 = [
 		{

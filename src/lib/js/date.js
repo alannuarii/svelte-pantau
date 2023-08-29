@@ -38,3 +38,11 @@ export const getToday = () => {
 	return today;
 	// 2023-02-21 tanggal hari ini
 };
+
+export const getDatetime = () => {
+	let sekarang = new Date();
+	const options = { timeZone: 'Asia/Jakarta', hour12: false };
+	const waktuSekarang = sekarang.toLocaleString('en-US', options);
+	return waktuSekarang;
+	// 8/29/2023, 17:14:28
+};
