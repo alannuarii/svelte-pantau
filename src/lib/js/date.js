@@ -41,6 +41,7 @@ export const getToday = () => {
 
 export const getDatetime = () => {
 	let sekarang = new Date();
+	sekarang.setHours(sekarang.getHours() + 1);
 	const options = { timeZone: 'Asia/Jakarta', hour12: false };
 	const waktuSekarang = sekarang.toLocaleString('en-US', options);
 	return waktuSekarang;
