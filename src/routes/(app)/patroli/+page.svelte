@@ -1,9 +1,9 @@
 <script>
 	import Title from '$lib/components/Title.svelte';
-	import { locations } from '$lib/js/locations';
 	import { getPiket } from '$lib/js/jadwal';
 	import namaPiket from '$lib/js/store';
 	let kondisi = false;
+	let persen = 30;
 
 	let names = getPiket();
 	$: pilih = $namaPiket === null ? false : true;
@@ -44,7 +44,9 @@
 				<p>Scan QR Code di Lokasi</p>
 				<div>
 					<div class="d-flex justify-content-center">
-						<a href="/patroli/qrscanner" class="qr"><i class="fi fi-rr-qrcode" /></a>
+						<a href="/patroli/qrscanner" class="qr mb-2"
+							><i class="fi fi-rr-qrcode border px-3 pt-2 shadow-sm" /></a
+						>
 					</div>
 					<div
 						class="progress"
@@ -54,8 +56,9 @@
 						aria-valuemin="0"
 						aria-valuemax="100"
 					>
-						<div class="progress-bar" style="width: 25%">25%</div>
+						<div class="progress-bar" style="width: {persen}%" />
 					</div>
+					<span class="mt-1">1 dari 7 lokasi</span>
 				</div>
 			</div>
 		</div>
@@ -91,7 +94,9 @@
 			{/if}
 		</div>
 		<div class="d-flex justify-content-center">
-			<button type="submit" class="btn submit">Kirim</button>
+			<button type="submit" class="btn submit" disabled={persen === 100 ? false : true}
+				>Kirim</button
+			>
 		</div>
 	</div>
 </div>
@@ -120,6 +125,17 @@
 	}
 	.fi-rr-qrcode {
 		font-size: 50px;
-		color: #2b2d42;
+		color: #2ec4b6;
+		border-color: #2ec4b6 !important;
+	}
+	.progress-bar {
+		background-color: #2ec4b6;
+	}
+	.progress {
+		height: 25px;
+	}
+	span {
+		margin: 0px;
+		font-size: 13px;
 	}
 </style>

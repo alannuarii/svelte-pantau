@@ -2,6 +2,7 @@
 	import { onMount, onDestroy, afterUpdate } from 'svelte';
 	import jsQR from 'jsqr';
 	import namaPiket from '../js/store';
+	import { locations } from '../js/locations';
 
 	let mediaStream;
 	let videoEl;
@@ -43,7 +44,9 @@
 				const imageData = context.getImageData(0, 0, canvasEl.width, canvasEl.height);
 				const code = jsQR(imageData.data, imageData.width, imageData.height);
 				if (code) {
-					window.location.href = `/patroli/${code.data}${$namaPiket.replace(/\s+/g, '')}`;
+					if (parseInt(code.data) < locations.length) {
+						window.location.href = `/patroli/${code.data}${$namaPiket.replace(/\s+/g, '')}`;
+					}
 				}
 			}
 
