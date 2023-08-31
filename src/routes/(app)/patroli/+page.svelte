@@ -41,7 +41,7 @@
 	<div class:d-none={!pilih}>
 		<div class="mb-3">
 			<div class="border p-3 text-center mb-2 shadow-sm">
-				<p>Scan QR Code di Lokasi</p>
+				<p class="mb-3">Scan QR Code di Lokasi</p>
 				<div>
 					<div class="d-flex justify-content-center">
 						<a href="/patroli/qrscanner" class="qr mb-2"
