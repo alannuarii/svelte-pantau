@@ -45,7 +45,7 @@
 				<div>
 					<div class="d-flex justify-content-center">
 						<a href="/patroli/qrscanner" class="qr mb-2"
-							><i class="fi fi-rr-qrcode border px-3 pt-2 shadow-sm" /></a
+							><i class="fi fi-rr-qrcode border px-3 pt-3 shadow-sm" /></a
 						>
 					</div>
 					<div
