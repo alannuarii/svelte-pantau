@@ -1,7 +1,8 @@
 import { API_ENDPOINT } from '../../../../lib/js/endpoint';
+import { redirect } from '@sveltejs/kit';
 
 export const actions = {
-	default: async ({ request }) => {
+	default: async ({ request, cookies }) => {
 		const data = await request.formData();
 
 		const formData = new FormData();
@@ -25,8 +26,17 @@ export const actions = {
 			}
 		});
 
-		const result = res.json();
+		const result = await res.json();
 
-		return result;
+		if (result.data) {
+			cookies.set('dataPatroli', JSON.stringify(result.data), {
+				path: '/patroli',
+				sameSite: 'strict'
+			});
+			throw redirect(302, '/patroli');
+		} else {
+			// Handle kesalahan jika diperlukan
+			console.error('Gagal memposting data');
+		}
 	}
 };

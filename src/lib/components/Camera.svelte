@@ -19,7 +19,6 @@
 			takeSnapshotBtn = true;
 		} catch (error) {
 			console.error('Tidak dapat mengakses kamera belakang:', error);
-			// Handle kesalahan jika diperlukan
 		}
 	}
 

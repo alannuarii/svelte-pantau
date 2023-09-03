@@ -2,6 +2,10 @@
 	import Title from '$lib/components/Title.svelte';
 	import { getPiket } from '$lib/js/jadwal';
 	import namaPiket from '$lib/js/store';
+	import { onMount } from 'svelte';
+
+	export let data;
+	let nama = data.data.nama ? data.data.nama : '';
 	let kondisi = false;
 	let persen = 30;
 
@@ -15,6 +19,12 @@
 			}
 		}
 	};
+
+	onMount(() => {
+		if ($namaPiket === null && nama) {
+			namaPiket.set(nama);
+		}
+	});
 </script>
 
 <div class="px-3">

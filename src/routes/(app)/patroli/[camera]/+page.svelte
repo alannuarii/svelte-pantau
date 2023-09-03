@@ -2,23 +2,28 @@
 	import Camera from '../../../../lib/components/Camera.svelte';
 	import { locations } from '../../../../lib/js/locations';
 	import { getDatetime } from '../../../../lib/js/date';
-	import {rentangWaktu} from '../../../../lib/js/jadwal'
+	import { rentangWaktu } from '../../../../lib/js/jadwal';
 	import { page } from '$app/stores';
+	// import { onMount } from 'svelte';
+	// import { goto } from '$app/navigation';
+
+	// export let form;
 
 	$: path = $page.url.pathname;
 	let nama;
-	let index
+	let index;
 
 	$: {
 		const getParam = path.split('/').pop();
-		const getString = getParam.match(/[A-Za-z]+/)[0]
-		nama = getString.replace(/([a-z])([A-Z])/g, '$1 $2')
-		index = getParam.match(/\d+/)[0]
+		const getString = getParam.match(/[A-Za-z]+/)[0];
+		nama = getString.replace(/([a-z])([A-Z])/g, '$1 $2');
+		index = getParam.match(/\d+/)[0];
 	}
-	// $:{
-	// 	console.log(param.match(/\d+/))
-	// 	console.log(param.match(/[A-Za-z]+/))
-	// }
+	// onMount(() => {
+	// 	if (form) {
+	// 		goto('/patroli');
+	// 	}
+	// });
 </script>
 
 <div class="px-3">
