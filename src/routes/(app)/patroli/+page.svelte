@@ -5,7 +5,7 @@
 	import { onMount } from 'svelte';
 
 	export let data;
-	let nama = data.data.nama ? data.data.nama : '';
+	let nama = data.data.length > 0 ? data.data[0].nama : '';
 	let kondisi = false;
 	let persen = 30;
 

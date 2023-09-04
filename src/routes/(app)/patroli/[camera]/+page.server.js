@@ -1,5 +1,6 @@
 import { API_ENDPOINT } from '../../../../lib/js/endpoint';
 import { redirect } from '@sveltejs/kit';
+import { generateUniqueCode } from '../../../../lib/js/unique';
 
 export const actions = {
 	default: async ({ request, cookies }) => {
@@ -12,6 +13,13 @@ export const actions = {
 		formData.append('waktu', data.get('waktu'));
 		formData.append('lokasi', data.get('lokasi'));
 		formData.append('catatan', data.get('catatan'));
+
+		if (cookies.get('dataPatroli')) {
+			const uniqueCode = JSON.parse(cookies.get('dataPatroli'));
+			formData.append('kode', uniqueCode[0].kode);
+		} else {
+			formData.append('kode', generateUniqueCode());
+		}
 
 		const parsedData = {};
 		for await (const [name, value] of formData.entries()) {
