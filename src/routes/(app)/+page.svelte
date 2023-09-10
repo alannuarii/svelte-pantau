@@ -10,10 +10,10 @@
 	export let data;
 	const info = data.data1 !== null && data.data1.length > 0 ? data.data1.data[0] : null;
 	const piket = data.data2 !== null && data.data2.data.length > 0 ? data.data2.data : [];
-	console.log(piket)
+	console.log(piket);
 	let lockPresensi = false;
-
-	if (getPiket().length === piket.length) {
+	console.log(piket.length >= getPiket().length);
+	if (piket.length >= getPiket().length) {
 		lockPresensi = true;
 	}
 
