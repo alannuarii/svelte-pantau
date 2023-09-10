@@ -1,14 +1,27 @@
 <script>
+	import ModalNotif from './ModalNotif.svelte';
 	export let path;
 	export let icon;
 	export let name;
-	export let visibility
+	export let visibility;
+	export let lock;
+	export let id;
+	export let pernyataan;
 </script>
 
-<a href={path} class="text-reset {visibility}">
-	<i class={icon} />
-	<p>{name}</p>
-</a>
+{#if lock}
+	<!-- svelte-ignore a11y-missing-attribute -->
+	<div class="text-reset {visibility}" data-bs-toggle="modal" data-bs-target="#{id}">
+		<i class={icon} />
+		<p>{name}</p>
+	</div>
+	<ModalNotif {id} {pernyataan} />
+{:else}
+	<a href={path} class="text-reset {visibility}">
+		<i class={icon} />
+		<p>{name}</p>
+	</a>
+{/if}
 
 <style>
 	i {
@@ -26,5 +39,8 @@
 	}
 	a {
 		text-decoration: none;
+	}
+	.btn{
+		border: none;
 	}
 </style>

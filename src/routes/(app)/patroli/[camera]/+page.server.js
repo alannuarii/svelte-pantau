@@ -36,7 +36,7 @@ export const actions = {
 
 		const result = await res.json();
 
-		if (result.data) {
+		if (result.data.length > 0) {
 			cookies.set('dataPatroli', JSON.stringify(result.data), {
 				path: '/patroli',
 				sameSite: 'strict'
@@ -45,6 +45,7 @@ export const actions = {
 		} else {
 			// Handle kesalahan jika diperlukan
 			console.error('Gagal memposting data');
+			throw redirect(302, '/patroli');
 		}
 	}
 };

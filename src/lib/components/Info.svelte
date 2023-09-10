@@ -1,6 +1,13 @@
+<script>
+	import { convertDatetime } from '../../lib/js/date';
+	export let nama;
+	export let waktu;
+</script>
+
 <div class="info p-3 border position-relative">
 	<p>
-		Patroli telah dilaksanakan oleh <span>Imran Mokodompit</span> pada pukul <span>08:00 WITA</span>
+		Patroli telah dilaksanakan oleh <span>{nama}</span> pada pukul
+		<span>{convertDatetime(waktu)} WITA</span>
 	</p>
 </div>
 

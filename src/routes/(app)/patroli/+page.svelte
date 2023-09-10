@@ -3,11 +3,22 @@
 	import { getPiket } from '$lib/js/jadwal';
 	import namaPiket from '$lib/js/store';
 	import { onMount } from 'svelte';
+	import { locations } from '$lib/js/locations';
+	import { getDatetime } from '$lib/js/date';
+	import ModalConfirm from '../../../lib/components/ModalConfirm.svelte';
 
 	export let data;
+	let lokasi = data.data.length > 0 ? data.data : [];
+	let totalLokasi = [];
 	let nama = data.data.length > 0 ? data.data[0].nama : '';
 	let kondisi = false;
-	let persen = 30;
+	$: persen = (totalLokasi.length / locations.length) * 100;
+
+	lokasi.forEach((e) => {
+		if (!totalLokasi.includes(e.lokasi)) {
+			totalLokasi.push(e.lokasi);
+		}
+	});
 
 	let names = getPiket();
 	$: pilih = $namaPiket === null ? false : true;
@@ -68,46 +79,56 @@
 					>
 						<div class="progress-bar" style="width: {persen}%" />
 					</div>
-					<span class="mt-1">1 dari 7 lokasi</span>
+					<span class="mt-1">{totalLokasi.length} dari {locations.length} lokasi</span>
 				</div>
+				<button
+					class="btn btn-sm border reset px-3 py-2 mt-2"
+					disabled={persen === 0 ? true : false}
+					data-bs-toggle="modal"
+					data-bs-target="#reset">Reset</button
+				>
+				<ModalConfirm id={'reset'} />
 			</div>
 		</div>
 
-		<div class="kondisi p-3 border mb-4 shadow-sm">
-			<label for="exampleRadios1" class="form-label">Laporan Patroli</label>
-			<div class="form-check">
-				<input
-					class="form-check-input"
-					type="radio"
-					name="kondisi"
-					id="exampleRadios1"
-					value="Aman"
-					bind:group={kondisi}
-				/>
-				<label class="form-check-label" for="exampleRadios2"> Aman </label>
-			</div>
-			<div class="form-check">
-				<input
-					class="form-check-input"
-					type="radio"
-					name="kondisi"
-					id="exampleRadios2"
-					value="Tidak Aman"
-					bind:group={kondisi}
-				/>
-				<label class="form-check-label" for="exampleRadios1"> Tidak Aman </label>
-			</div>
-			{#if kondisi === 'Tidak Aman'}
-				<div>
-					<textarea class="form-control" rows="2" />
+		<form method="POST">
+			<div class="kondisi p-3 border mb-4 shadow-sm">
+				<label for="exampleRadios1" class="form-label">Laporan Patroli</label>
+				<div class="form-check">
+					<input
+						class="form-check-input"
+						type="radio"
+						name="kondisi"
+						id="exampleRadios1"
+						value="Aman"
+						bind:group={kondisi}
+					/>
+					<label class="form-check-label" for="exampleRadios2"> Aman </label>
 				</div>
-			{/if}
-		</div>
-		<div class="d-flex justify-content-center">
-			<button type="submit" class="btn submit" disabled={persen === 100 ? false : true}
-				>Kirim</button
-			>
-		</div>
+				<div class="form-check">
+					<input
+						class="form-check-input"
+						type="radio"
+						name="kondisi"
+						id="exampleRadios2"
+						value="Tidak Aman"
+						bind:group={kondisi}
+					/>
+					<label class="form-check-label" for="exampleRadios1"> Tidak Aman </label>
+				</div>
+				{#if kondisi === 'Tidak Aman'}
+					<div>
+						<textarea class="form-control" name="catatan" rows="2" />
+					</div>
+				{/if}
+			</div>
+			<div class="d-flex justify-content-center">
+				<input type="hidden" name="waktu" value={getDatetime()} />
+				<button type="submit" class="btn submit" disabled={persen === 100 ? false : true}
+					>Kirim</button
+				>
+			</div>
+		</form>
 	</div>
 </div>
 
@@ -147,5 +168,9 @@
 	span {
 		margin: 0px;
 		font-size: 13px;
+	}
+	.reset {
+		background-color: #2b2d42;
+		color: #ffffff;
 	}
 </style>

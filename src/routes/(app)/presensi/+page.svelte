@@ -2,6 +2,8 @@
 	import { onMount, onDestroy } from 'svelte';
 	import * as faceapi from 'face-api.js';
 	import Title from '../../../lib/components/Title.svelte';
+	import { getDatetime } from '../../../lib/js/date';
+	import { rentangWaktu } from '../../../lib/js/jadwal';
 
 	let videoEl;
 	let canvas;
@@ -35,7 +37,7 @@
 	}
 
 	function getLabeledFaceDescriptions() {
-		const labels = ['Alan', 'Gagi'];
+		const labels = ['Faisal Manopode', 'Gagi'];
 		return Promise.all(
 			labels.map(async (label) => {
 				const descriptions = [];
@@ -134,6 +136,9 @@
 			</div>
 		</div>
 		<div class="d-flex justify-content-center">
+			<input type="hidden" name="nama" value={arrNames[0]} />
+			<input type="hidden" name="waktu" value={getDatetime()} />
+			<input type="hidden" name="shift" value={rentangWaktu()} />
 			<button type="submit" class="btn submit" disabled={!checkIn}>Check In</button>
 		</div>
 	</form>

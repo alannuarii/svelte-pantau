@@ -1,16 +1,21 @@
 <script>
-	import { getPiket } from '../js/jadwal';
-
-	let names = getPiket();
+	export let names;
 </script>
 
 <h6>Petugas Piket</h6>
-{#each names as nama}
+{#if names.length === 0}
 	<div class="d-flex align-items-center">
-		<i class="fi fi-sr-user" />
-		<p>{nama}</p>
+		<i class="fi fi-sr-user-slash" />
+		<p>Belum check in</p>
 	</div>
-{/each}
+{:else}
+	{#each names as nama}
+		<div class="d-flex align-items-center">
+			<i class="fi fi-sr-user" />
+			<p>{nama.nama}</p>
+		</div>
+	{/each}
+{/if}
 
 <style>
 	i {

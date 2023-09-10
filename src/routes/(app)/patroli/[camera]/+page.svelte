@@ -4,10 +4,8 @@
 	import { getDatetime } from '../../../../lib/js/date';
 	import { rentangWaktu } from '../../../../lib/js/jadwal';
 	import { page } from '$app/stores';
-	// import { onMount } from 'svelte';
-	// import { goto } from '$app/navigation';
-
-	// export let form;
+	import { goto } from '$app/navigation';
+	import { onMount } from 'svelte';
 
 	$: path = $page.url.pathname;
 	let nama;
@@ -19,11 +17,12 @@
 		nama = getString.replace(/([a-z])([A-Z])/g, '$1 $2');
 		index = getParam.match(/\d+/)[0];
 	}
-	// onMount(() => {
-	// 	if (form) {
-	// 		goto('/patroli');
-	// 	}
-	// });
+
+	onMount(() => {
+		if (parseInt(index) + 1 > locations.length) {
+			goto('/patroli');
+		}
+	});
 </script>
 
 <div class="px-3">

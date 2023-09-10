@@ -52,3 +52,13 @@ export const getDatetime = () => {
 	return formattedDateTime;
 	// Contoh keluaran: "2023-09-03 10:21:39"
 };
+
+
+export const convertDatetime = (datetime)=>{
+	const tanggal = new Date(datetime)
+	const jam = tanggal.getUTCHours()
+	const menit = tanggal.getUTCMinutes()
+	const formatWaktu = (jam < 10 ? '0' : '') + jam + ':' + (menit < 10 ? '0' : '') + menit;
+	return formatWaktu 
+	// convert  2023-09-08T07:27:02.000Z to 07:27
+}
