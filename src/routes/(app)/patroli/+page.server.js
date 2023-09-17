@@ -50,7 +50,6 @@ export const actions = {
 		const result = await res.json();
 
 		if (result.message === 'Berhasil') {
-
 			throw redirect(302, '/patroli/reset');
 		} else {
 			// Handle kesalahan jika diperlukan
