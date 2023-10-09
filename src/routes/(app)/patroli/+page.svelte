@@ -1,6 +1,5 @@
 <script>
 	import Title from '$lib/components/Title.svelte';
-	import { getPiket } from '$lib/js/jadwal';
 	import namaPiket from '$lib/js/store';
 	import { onMount } from 'svelte';
 	import { locations } from '$lib/js/locations';
@@ -11,6 +10,7 @@
 	let lokasi = data.data.length > 0 ? data.data : [];
 	let totalLokasi = [];
 	let nama = data.data.length > 0 ? data.data[0].nama : '';
+	let namesCheckIn = data.data2.data.length > 0 ? data.data2.data : '';
 	let kondisi = false;
 	$: persen = (totalLokasi.length / locations.length) * 100;
 
@@ -20,7 +20,8 @@
 		}
 	});
 
-	let names = getPiket();
+	let names = namesCheckIn.map((e) => e.nama);
+
 	$: pilih = $namaPiket === null ? false : true;
 
 	const handleSelect = (event) => {

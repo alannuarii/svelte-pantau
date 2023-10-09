@@ -1,15 +1,21 @@
 import { API_ENDPOINT } from '../../../lib/js/endpoint';
+import { rentangWaktu } from '../../../lib/js/jadwal';
 import { redirect } from '@sveltejs/kit';
 
 export const load = async ({ cookies }) => {
+	const shift = rentangWaktu();
 	try {
+		const res2 = await fetch(`${API_ENDPOINT}/get/presensi/get-piket/${shift}`);
+		const data2 = await res2.json();
+
 		if (cookies.get('dataPatroli')) {
 			const dataPatroli = cookies.get('dataPatroli');
 			const data = JSON.parse(dataPatroli);
-			return { data };
+			return { data, data2 };
 		}
+
 		const data = '';
-		return { data };
+		return { data, data2 };
 	} catch (error) {
 		console.error('Terjadi kesalahan', error);
 		throw error;
