@@ -10,7 +10,7 @@
 	let lokasi = data.data.length > 0 ? data.data : [];
 	let totalLokasi = [];
 	let nama = data.data.length > 0 ? data.data[0].nama : '';
-	let namesCheckIn = data.data2.data.length > 0 ? data.data2.data : '';
+	let namesCheckIn = data.data2.data.length > 0 ? data.data2.data : [];
 	let kondisi = false;
 	$: persen = (totalLokasi.length / locations.length) * 100;
 
