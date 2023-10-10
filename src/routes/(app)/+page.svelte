@@ -6,7 +6,6 @@
 	import Times from '../../lib/components/Times.svelte';
 	import Info from '../../lib/components/Info.svelte';
 	import { getPiket } from '../../lib/js/jadwal';
-	import { getDatetime } from '../../lib/js/date';
 
 	export let data;
 	const info = data.data1 !== null && data.data1.data.length > 0 ? data.data1.data[0] : null;

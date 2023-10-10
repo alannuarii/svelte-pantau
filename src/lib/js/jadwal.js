@@ -45,6 +45,20 @@ export const jadwalPiket = (tanggal) => {
 };
 
 export const rentangWaktu = () => {
+	const sekarang = new Date();
+	const jam = sekarang.getHours();
+	// const menit = sekarang.getMinutes();
+
+	if (jam >= 0 && jam < 8) {
+		return 'm';
+	} else if (jam >= 8 && jam < 16) {
+		return 'p';
+	} else if (jam >= 16 && jam < 24) {
+		return 's';
+	}
+};
+
+export const rentangWaktuServer = () => {
 	let sekarang = new Date();
 	sekarang.setHours(sekarang.getHours() + 8);
 	const jam = sekarang.getHours();
