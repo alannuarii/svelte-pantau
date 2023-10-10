@@ -1,11 +1,13 @@
 import { API_ENDPOINT } from '../../../lib/js/endpoint';
-import { rentangWaktu } from '../../../lib/js/jadwal';
+import { rentangWaktuServer } from '../../../lib/js/jadwal';
+import { getDatetime } from '../../../lib/js/date';
 import { redirect } from '@sveltejs/kit';
 
 export const load = async ({ cookies }) => {
-	const shift = rentangWaktu();
+	const piket = rentangWaktuServer();
+	const now = getDatetime().slice(0, 10);
 	try {
-		const res2 = await fetch(`${API_ENDPOINT}/get/presensi/get-piket/${shift}`);
+		const res2 = await fetch(`${API_ENDPOINT}/get/presensi/get-piket/${piket}_${now}`);
 		const data2 = await res2.json();
 
 		if (cookies.get('dataPatroli')) {
