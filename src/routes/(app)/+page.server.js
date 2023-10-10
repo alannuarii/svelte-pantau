@@ -1,10 +1,10 @@
 import { API_ENDPOINT } from '../../lib/js/endpoint';
 import { rentangWaktuServer } from '../../lib/js/jadwal';
-import { getDatetime } from '../../lib/js/date';
+import { getDatetimeServer } from '../../lib/js/date';
 
 export const load = async () => {
 	const piket = rentangWaktuServer();
-	const datetime = getDatetime()
+	const datetime = getDatetimeServer()
 	const now = datetime.slice(0, 10);
 	try {
 		const [res1, res2] = await Promise.all([

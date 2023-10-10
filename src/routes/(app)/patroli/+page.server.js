@@ -1,11 +1,12 @@
 import { API_ENDPOINT } from '../../../lib/js/endpoint';
 import { rentangWaktuServer } from '../../../lib/js/jadwal';
-import { getDatetime } from '../../../lib/js/date';
+import { getDatetimeServer } from '../../../lib/js/date';
 import { redirect } from '@sveltejs/kit';
 
 export const load = async ({ cookies }) => {
 	const piket = rentangWaktuServer();
-	const now = getDatetime().slice(0, 10);
+	const datetime = getDatetimeServer()
+	const now = datetime.slice(0, 10);
 	try {
 		const res2 = await fetch(`${API_ENDPOINT}/get/presensi/get-piket/${piket}_${now}`);
 		const data2 = await res2.json();
