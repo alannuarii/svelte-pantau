@@ -45,9 +45,9 @@ export const jadwalPiket = (tanggal) => {
 };
 
 export const rentangWaktu = () => {
-	const sekarang = new Date();
+	let sekarang = new Date();
+	sekarang.setHours(sekarang.getHours() + 8);
 	const jam = sekarang.getHours();
-	// const menit = sekarang.getMinutes();
 
 	if (jam >= 0 && jam < 8) {
 		return 'm';
