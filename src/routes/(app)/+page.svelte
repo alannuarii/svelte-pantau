@@ -6,12 +6,12 @@
 	import Times from '../../lib/components/Times.svelte';
 	import Info from '../../lib/components/Info.svelte';
 	import { getPiket } from '../../lib/js/jadwal';
+	import { getDatetime } from '../../lib/js/date';
 
 	export let data;
 	const info = data.data1 !== null && data.data1.data.length > 0 ? data.data1.data[0] : null;
 	const piket = data.data2 !== null && data.data2.data.length > 0 ? data.data2.data : [];
 	let lockPresensi = false;
-	console.log(piket)
 
 	if (piket.length >= getPiket().length) {
 		lockPresensi = true;
@@ -59,6 +59,7 @@
 	</div>
 	{#if info !== null}
 		<div class="mx-3 py-2">
+			<h6>{getDatetime()}</h6>
 			<Info nama={info.nama} waktu={info.waktu} />
 		</div>
 	{/if}

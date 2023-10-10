@@ -1,6 +1,6 @@
 import { API_ENDPOINT } from '../../lib/js/endpoint';
 import { rentangWaktu } from '../../lib/js/jadwal';
-import { getEpochTime, getDatetime } from '../../lib/js/date';
+import { getDatetime } from '../../lib/js/date';
 
 export const load = async () => {
 	const piket = rentangWaktu();
