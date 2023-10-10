@@ -69,7 +69,7 @@ export const convertDatetime = (datetime) => {
 export const getEpochTime = () => {
 	const now = Date.now();
 	const tanggal = new Date(now);
-	tanggal.setHours(tanggal.getHours() + 8);
+	tanggal.setHours(tanggal.getHours() + 0);
 	const timestampSetelahPenambahan = tanggal.getTime();
 	return timestampSetelahPenambahan
 	// 1696962836404
