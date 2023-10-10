@@ -1,9 +1,10 @@
 import { API_ENDPOINT } from '../../lib/js/endpoint';
 import { rentangWaktu } from '../../lib/js/jadwal';
+import { getEpochTime } from '../../lib/js/date';
 
 export const load = async () => {
 	const piket = rentangWaktu();
-	const now = Date.now();
+	const now = getEpochTime()
 	try {
 		const [res1, res2] = await Promise.all([
 			fetch(`${API_ENDPOINT}/get/patroli/get-note-patroli`).then((res) => res.json()),
