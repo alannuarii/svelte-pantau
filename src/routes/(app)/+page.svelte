@@ -59,7 +59,7 @@
 	</div>
 	{#if info !== null}
 		<div class="mx-3 py-2">
-			<h6>{getDatetime()}</h6>
+			<h6>{data.data3}</h6>
 			<Info nama={info.nama} waktu={info.waktu} />
 		</div>
 	{/if}
