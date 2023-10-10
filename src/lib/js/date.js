@@ -53,12 +53,25 @@ export const getDatetime = () => {
 	// Contoh keluaran: "2023-09-03 10:21:39"
 };
 
-
-export const convertDatetime = (datetime)=>{
-	const tanggal = new Date(datetime)
-	const jam = tanggal.getUTCHours()
-	const menit = tanggal.getUTCMinutes()
+export const convertDatetime = (datetime) => {
+	const tanggal = new Date(datetime);
+	
+	// Tambahkan 8 jam ke tanggal
+	tanggal.setTime(tanggal.getTime() + 8 * 60 * 60 * 1000);
+  
+	const jam = tanggal.getUTCHours();
+	const menit = tanggal.getUTCMinutes();
 	const formatWaktu = (jam < 10 ? '0' : '') + jam + ':' + (menit < 10 ? '0' : '') + menit;
-	return formatWaktu 
+	return formatWaktu;
 	// convert  2023-09-08T07:27:02.000Z to 07:27
-}
+  }
+
+
+// export const convertDatetime = (datetime)=>{
+// 	const tanggal = new Date(datetime)
+// 	const jam = tanggal.getUTCHours()
+// 	const menit = tanggal.getUTCMinutes()
+// 	const formatWaktu = (jam < 10 ? '0' : '') + jam + ':' + (menit < 10 ? '0' : '') + menit;
+// 	return formatWaktu 
+// 	// convert  2023-09-08T07:27:02.000Z to 07:27
+// }
